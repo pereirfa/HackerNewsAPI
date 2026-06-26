@@ -1,160 +1,124 @@
-## 📋 Informações do Projeto
+## 📋 Project Information
 
-| Campo                  | Descrição                                                                 |
-|------------------------|---------------------------------------------------------------------------|
-| **Nome do Candidato**  | Fabio Sarmento Pereira                                                    |
-| **Repositório**        | [HackerNewsAPI](https://github.com/pereirfa/HackerNewsAPI)                |
-| **Arquitetura**        | MVC (Controller / Model / Services)                                       |
-| **Documentação Swagger** | Não implementada                                                        |
-| **Logging/Monitoramento** | Não implementado                                                       |
-| **Objetivo**           | Consumir dados da API pública do Hacker News e disponibilizar via rotas   |
+| Field                  | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| **Candidate Name**      | Fabio Sarmento Pereira                                                      |
+| **Repository**          | [HackerNewsAPI](https://github.com/pereirfa/HackerNewsAPI)                  |
+| **Architecture**        | MVC (Controller / Model / Services)                                         |
+| **Swagger Documentation** | Not implemented                                                           |
+| **Logging/Monitoring**  | Not implemented                                                             |
+| **Objective**           | Consume data from the public Hacker News API and expose it via routes       |
 
 ---
 
 # HackerNews API
 
-## 📌 Descrição
-Esta aplicação é uma API construída em ASP.NET Core que expõe endpoints para consultar dados da [Hacker News API](https://github.com/HackerNews/API).  
-Ela utiliza `HttpClient` para comunicação externa e `MemoryCache` para otimizar chamadas repetidas.
+## 📌 Description
+This application is an API built with ASP.NET Core that exposes endpoints to query data from the [Hacker News API](https://github.com/HackerNews/API).  
+It uses `HttpClient` for external communication and `MemoryCache` to optimize repeated calls.
 
 ---
 
-## 🚀 Como rodar a aplicação
+## 🚀 How to Run the Application
 
-### Pré-requisitos
-- [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) instalado
-- Acesso à internet (para chamadas reais à API Hacker News)
+### Prerequisites
+- [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) installed
+- Internet access (for real calls to the Hacker News API)
 
+### Steps to Run
 
-## 🚀 Passos para executar a aplicação
+| #  | Step                        | Command / Action                                                                 |
+|----|-----------------------------|----------------------------------------------------------------------------------|
+| 1  | Clone the repository        | `git clone https://github.com/pereirfa/HackerNewsAPI.git`                        |
+| 2  | Access the project folder   | `cd HackerNewsAPI`                                                                |
+| 3  | Restore dependencies        | `dotnet restore`                                                                  |
+| 4  | Build the project           | `dotnet build`                                                                    |
+| 5  | Run the application         | `dotnet run`                                                                      |
+| 6  | Access the API locally      | `http://localhost:5000` or `https://localhost:5001`                               |
+| 7  | Test available endpoints    | Example: `GET /Item/{id}` for a specific item, `GET /TopStories` for top stories  |
 
-| Nº | Etapa                        | Comando / Ação                                                                 |
-|----|------------------------------|--------------------------------------------------------------------------------|
-| 1  | Clonar o repositório         | `git clone https://github.com/pereirfa/HackerNewsAPI.git`                      |
-| 2  | Acessar a pasta do projeto   | `cd HackerNewsAPI`                                                              |
-| 3  | Restaurar dependências       | `dotnet restore`                                                                |
-| 4  | Compilar o projeto           | `dotnet build`                                                                  |
-| 5  | Executar a aplicação         | `dotnet run`                                                                    |
-| 6  | Acessar a API localmente     | `http://localhost:5000` ou `https://localhost:5001`                             |
-| 7  | Testar endpoints disponíveis | Exemplo: `GET /Item/{id}` para buscar item específico, `GET /TopStories` para histórias principais |
+---
 
+## 📂 Project Structure
 
-   
-## 📂 Estrutura do Projeto
-| Projeto/Folder            | Descrição                          |
-|----------------------------|------------------------------------|
-| **HackerNewsAPI/**         | Projeto principal da API           |
-| ├── Controllers/           | Controladores da aplicação         |
-| ├── Models/                | Modelos de dados                   |
-| ├── Services/              | Serviços e lógica de negócio       |
-| **HackerNewsAPI.Tests/**   | Projeto de testes automatizados    |
+---
 
+# 📌 API Routes Summary
 
-
-# 📌 Resumo das Rotas da API
-
-Base das rotas:
 ## 🔹 ItemController
 
-| Método | Rota            | Descrição                          |
-|--------|-----------------|------------------------------------|
-| GET    | /v0/item/{id}   | Retorna os detalhes de um item pelo seu **id**. |
+| Method | Route          | Description                          |
+|--------|----------------|--------------------------------------|
+| GET    | /v0/item/{id}  | Returns item details by **id**.      |
 
 ---
 
 ## 🔹 StoriesController
 
-| Método | Rota                      | Descrição                                      |
-|--------|---------------------------|------------------------------------------------|
-| GET    | /v0/stories/topstories    | Lista das histórias mais populares.            |
-| GET    | /v0/stories/newstories    | Lista das histórias mais recentes.             |
-| GET    | /v0/stories/beststories   | Lista das histórias com melhor avaliação.      |
-| GET    | /v0/stories/askstories    | Lista das histórias do tipo *Ask HN*.          |
-| GET    | /v0/stories/showstories   | Lista das histórias do tipo *Show HN*.         |
-| GET    | /v0/stories/jobstories    | Lista das histórias relacionadas a empregos.   |
+| Method | Route                      | Description                                      |
+|--------|----------------------------|--------------------------------------------------|
+| GET    | /v0/stories/topstories     | List of most popular stories.                    |
+| GET    | /v0/stories/newstories     | List of most recent stories.                     |
+| GET    | /v0/stories/beststories    | List of best-rated stories.                      |
+| GET    | /v0/stories/askstories     | List of *Ask HN* stories.                        |
+| GET    | /v0/stories/showstories    | List of *Show HN* stories.                       |
+| GET    | /v0/stories/jobstories     | List of job-related stories.                     |
 
 ---
 
 ## 🔹 UserController
 
-| Método | Rota            | Descrição                          |
-|--------|-----------------|------------------------------------|
-| GET    | /v0/user/{id}   | Retorna os detalhes de um usuário pelo seu **id**. |
+| Method | Route          | Description                          |
+|--------|----------------|--------------------------------------|
+| GET    | /v0/user/{id}  | Returns user details by **id**.      |
+
+---
+
+## ⚙️ Cache Functionality in the API
+
+The API uses a service called **CachedHackerNewsService**, which wraps the `HackerNewsService` and adds **in-memory caching** support via ASP.NET Core’s `IMemoryCache`.
+
+### 🔹 Flow Example (with `ItemController`)
+
+| Step | Request Scenario | Behavior                                                                 |
+|------|-----------------|--------------------------------------------------------------------------|
+| **1. First Request** | `GET /v0/item/{id}` | - Executes `GetItemAsync(id)`.<br>- Checks if the item is in cache.<br>- Since it’s the first call, the item is **not cached** → queries Hacker News via `HttpClient`.<br>- Stores the result in cache for future calls. |
+| **2. Second Request (same id)** | `GET /v0/item/{id}` | - Finds the item in cache.<br>- Returns immediately **without calling HttpClient**.<br>- Reduces latency and avoids repeated external calls. |
+| **3. Cache Validity** | Any subsequent request | - Cache lifetime is configured via `MemoryCacheOptions`.<br>- While valid, requests for the same `id` are served directly from memory. |
+
+---
+
+### 🔹 Benefits
+
+- **Performance** → Faster responses after the first call.  
+- **Efficiency** → Fewer external calls to Hacker News.  
+- **Scalability** → Reduces load on external services and improves user experience.  
+
+---
+
+### 🔹 Validation Tests
+
+Unit tests (`CachedHackerNewsServiceTests`) ensure correct cache behavior:
+
+| Test Case | Expected Behavior |
+|-----------|------------------|
+| First call | `HttpClient` is invoked |
+| Second call (same id) | Result comes from cache |
+| Validation | Confirms `HttpClient` was called only **once** |
 
 
-```markdown
-## ⚙️ Funcionamento do Cache na API
+---
 
-A API utiliza um serviço chamado **CachedHackerNewsService**, que encapsula o `HackerNewsService` e adiciona suporte a **cache em memória** através do `IMemoryCache` do ASP.NET Core.  
+### 📌 Next Steps
+To make the project more robust and production-ready, the following improvements are suggested:
 
-### 🔹 Fluxo de funcionamento (exemplo com `ItemController`)
+| Improvement Area | Description |
+|------------------|-------------|
+| **Swagger/OpenAPI Documentation** | Facilitate testing and route visualization. Generate automatic API documentation. |
+| **Structured Logging** | Use libraries like **Serilog** or **NLog**. Record errors, performance metrics, and key events. |
+| **Monitoring Configuration** | Integrate tools like **Application Insights**, **Prometheus**, or **Grafana**. Track availability, response times, and API usage. |
+| **Error Handling** | Implement standardized error responses. Ensure clear messages for API clients. |
+| **Automated Testing** | Create unit and integration tests. Validate behavior of controllers, services, and models. |
+| **Additional Documentation** | Explain adopted MVC architecture. Detail data flow between Controller → Service → Model. |
 
-1. **Primeira requisição**  
-   - Quando o cliente chama `GET /v0/item/{id}`, o método `GetItemAsync(id)` é executado.  
-   - O serviço verifica se o item já está armazenado no cache.  
-   - Como é a primeira chamada, o item **não está no cache** → o serviço consulta o Hacker News via `HttpClient`.  
-   - O resultado é armazenado no cache para futuras chamadas.
-
-2. **Segunda requisição (mesmo id)**  
-   - O cliente chama novamente `GET /v0/item/{id}`.  
-   - O serviço encontra o item no cache e retorna imediatamente, **sem chamar o HttpClient**.  
-   - Isso reduz a latência e evita chamadas repetidas à API externa.
-
-3. **Validade do cache**  
-   - O tempo de vida dos objetos no cache é configurado pelo `MemoryCacheOptions`.  
-   - Enquanto o item estiver válido no cache, novas requisições para o mesmo `id` serão atendidas diretamente da memória.
-
-### 🔹 Benefícios
-
-- **Performance**: respostas mais rápidas após a primeira chamada.  
-- **Eficiência**: menos chamadas externas ao Hacker News.  
-- **Escalabilidade**: reduz carga em serviços externos e melhora a experiência do usuário.
-
-### 🔹 Teste de validação
-
-O projeto inclui testes unitários (`CachedHackerNewsServiceTests`) que garantem o funcionamento correto do cache:
-
-- Na **primeira chamada**, o `HttpClient` é invocado.  
-- Na **segunda chamada com o mesmo id**, o resultado vem do cache.  
-- O teste confirma que o `HttpClient` foi chamado apenas **uma vez**, validando o uso do cache.
-
-```csharp
-Assert.Equal(1, handler.CallCount); // HttpClient chamado apenas uma vez
-  
-## Observações sobre o Projeto
-
-| Aspecto                        | Situação Atual                                                                 |
-|--------------------------------|-------------------------------------------------------------------------------|
-| **Documentação Swagger**        | Não foi implementada documentação das APIs utilizando Swagger/OpenAPI.        |
-| **Logging e Monitoramento**     | Não há processos de logging estruturado nem monitoramento das chamadas de API. |
-| **Arquitetura**                 | O projeto segue o padrão **MVC** (Controller / Model / Services), focando na codificação e no tratamento das rotas. |
-
-## Próximos Passos
-Para tornar o projeto mais robusto e pronto para produção, sugerimos as seguintes melhorias:
-
-- [ ] **Implementar documentação Swagger/OpenAPI**  
-  - Facilitar testes e visualização das rotas.  
-  - Gerar documentação automática das APIs.  
-
-- [ ] **Adicionar logging estruturado**  
-  - Utilizar bibliotecas como **Serilog** ou **NLog**.  
-  - Registrar erros, métricas de desempenho e eventos importantes.  
-
-- [ ] **Configurar monitoramento**  
-  - Integrar ferramentas como **Application Insights**, **Prometheus** ou **Grafana**.  
-  - Acompanhar disponibilidade, tempo de resposta e uso das APIs.  
-
-- [ ] **Melhorar tratamento de erros**  
-  - Implementar respostas padronizadas para falhas.  
-  - Garantir mensagens claras para o cliente da API.  
-
-- [ ] **Testes automatizados**  
-  - Criar testes unitários e de integração.  
-  - Validar o comportamento dos controllers, services e models.  
-
-- [ ] **Documentação adicional**  
-  - Explicar arquitetura MVC adotada.  
-  - Detalhar fluxo de dados entre Controller → Service → Model.  
-  
-
-
+---
